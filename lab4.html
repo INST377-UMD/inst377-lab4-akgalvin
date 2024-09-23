@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INST377 Lab 4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    section {
+      border: 2px solid #e7e4e4;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    .colored {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="main-heading">INST377 Lab 4/h1>
+
+  <section>
+    <h2>Alert Me Section</h2>
+    <form id="alert-form">
+      <label for="name">Input Name:</label>
+      <input type="text" id="name" name="name" required>
+      <button type="button" onclick="alertMe()">Alert Me</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Change Color Section</h2>
+    <button type="button" onclick="changeColor()">Change Color</button>
+  </section>
+
+  <section>
+    <h2>Text Tester Section</h2>
+    <form id="text-form">
+      <label for="text">Enter some text:</label>
+      <input type="text" id="text" name="text">
+      <button type="button" onclick="validateText()">Validate Text</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Add Text Section</h2>
+    <button type="button" onclick="addText()">Add Text</button>
+  </section>
+
+  <script>
+    function alertMe() {
+      var name = document.getElementById('name').value;
+      if (name) {
+        alert('Hi ' + name + '!');
+      }
+    }
+
+    var isBlue = true;
+    function changeColor() {
+      if (isBlue) {
+        document.body.style.backgroundColor = 'green';
+      } else {
+        document.body.style.backgroundColor = 'blue';
+      }
+      isBlue = !isBlue;
+    }
+    function validateText() {
+      var text = document.getElementById('text').value;
+      var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+      if (validation.test(text)) {
+        alert('Text contains special characters!');
+      } else {
+        alert('Text is valid!');
+      }
+    }
+
+    function addText() {
+      var heading = document.getElementById('main-heading');
+      heading.innerHTML += ' Add Text';
+    }
+  </script>
+</body>
+</html>
